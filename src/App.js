@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import {ContainerListItem} from "./ContainerListItem.js"
+const dataBase = {containerList:["MSCU 123 456-9","MSCU 123 456-8","MSCU 123 456-7","MSCU 123 456-5"]}
 
 class App extends Component {
   render() {
@@ -21,23 +22,9 @@ class App extends Component {
               I have submitted the verified gross weight to the carrier for the
               below selected container(s).
             </div>
-            <ContainerListItem />
-            <div className="container-list-item">
-              <input type="checkbox" />
-              MSCU 123 456 -9
-            </div>
-            <div className="container-list-item">
-              <input type="checkbox" />
-              MSCU 123 456 -8
-            </div>
-            <div className="container-list-item">
-              <input type="checkbox" />
-              MSCU 123 456 -7
-            </div>
-            <div className="container-list-item">
-              <input type="checkbox" />
-              MSCU 123 456 -0
-            </div>
+            {dataBase.containerList.map(containerNumber =>
+              <ContainerListItem containerNumber={containerNumber}/>
+              )}
           </div>
           <div className="footer-row">
             <button>Complete</button>
