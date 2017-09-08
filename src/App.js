@@ -23,7 +23,7 @@ class App extends Component {
               below selected container(s).
             </div>
             {dataBase.containerList.map(containerNumber =>
-              <ContainerListItem containerNumber={containerNumber}/>
+              <ContainerListItem containerNumber={containerNumber} isSubmitted={true}/>
               )}
           </div>
           <div className="footer-row">
