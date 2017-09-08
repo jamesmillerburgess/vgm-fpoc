@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import {ContainerListItem} from "./ContainerListItem.js"
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
               I have submitted the verified gross weight to the carrier for the
               below selected container(s).
             </div>
+            <ContainerListItem />
             <div className="container-list-item">
               <input type="checkbox" />
               MSCU 123 456 -9
