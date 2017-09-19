@@ -13,9 +13,19 @@ const dataBase = {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state={taskStatus:"not started",isContainerChecked:[false,false,false,false]}
+    this.state={taskStatus:"not started",isContainerChecked:[false,false,false,false],
+  isContainerSubmitted:[false,false,false,false]}
+  }
+  handleSubmit() {
+    //loop over containers
+    //check if container is checked
+    //update state is container submitted
   }
   handleCheck(isChecked, index) {
+    const newState =this.state.isContainerChecked.slice()
+    newState[index]=isChecked
+    this.setState({isContainerChecked: newState})
+    console.log(newState)
     
   }
   render() {
@@ -39,14 +49,14 @@ class App extends Component {
             {dataBase.containerList.map((containerNumber, index) => (
               <ContainerListItem
                 containerNumber={containerNumber}
-                isSubmitted={true}
+                isSubmitted={this.state.isContainerSubmitted[index]}
                 onChange={isChecked => this.handleCheck(isChecked, index)}
                 isChecked={this.state.isContainerChecked[index]}
               />
             ))}
           </div>
           <div className="footer-row">
-            <button>Complete</button>
+            <button onClick={this.handleSubmit}>Complete</button>
             <button>Cancel</button>
           </div>
         </div>
