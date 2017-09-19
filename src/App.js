@@ -15,6 +15,9 @@ class App extends Component {
     super(props);
     this.state={taskStatus:"not started",isContainerChecked:[false,false,false,false]}
   }
+  handleCheck(isChecked, index) {
+    
+  }
   render() {
     return (
       <div className="App">
