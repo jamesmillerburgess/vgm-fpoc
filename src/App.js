@@ -11,6 +11,10 @@ const dataBase = {
 };
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state={taskStatus:"not started",isContainerChecked:[false,false,false,false]}
+  }
   render() {
     return (
       <div className="App">
@@ -19,7 +23,7 @@ class App extends Component {
             <div className="header-row">
               <div>VGM Submission</div>
               <div className="header-right">
-                <div>Not Started</div>
+                <div>{this.state.taskStatus}</div>
                 <button className="dismiss-button">X</button>
               </div>
             </div>
@@ -29,10 +33,12 @@ class App extends Component {
               I have submitted the verified gross weight to the carrier for the
               below selected container(s).
             </div>
-            {dataBase.containerList.map(containerNumber => (
+            {dataBase.containerList.map((containerNumber, index) => (
               <ContainerListItem
                 containerNumber={containerNumber}
                 isSubmitted={true}
+                onChange={isChecked => this.handleCheck(isChecked, index)}
+                isChecked={this.state.isContainerChecked[index]}
               />
             ))}
           </div>
