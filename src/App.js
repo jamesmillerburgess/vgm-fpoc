@@ -1,20 +1,23 @@
-import React, { Component } from "react";
-import "./App.css";
-import { ContainerListItem } from "./ContainerListItem.js";
+import React, { Component } from 'react';
+import './App.css';
+import { ContainerListItem } from './ContainerListItem.js';
 const dataBase = {
   containerList: [
-    "MSCU 123 456-9",
-    "MSCU 123 456-8",
-    "MSCU 123 456-7",
-    "MSCU 123 456-5"
-  ]
+    'MSCU 123 456-9',
+    'MSCU 123 456-8',
+    'MSCU 123 456-7',
+    'MSCU 123 456-5',
+  ],
 };
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state={taskStatus:"not started",isContainerChecked:[false,false,false,false],
-  isContainerSubmitted:[false,false,false,false]}
+    this.state = {
+      taskStatus: 'not started',
+      isContainerChecked: [false, false, false, false],
+      isContainerSubmitted: [false, false, false, false],
+    };
   }
   handleSubmit() {
     //loop over containers
@@ -22,11 +25,10 @@ class App extends Component {
     //update state is container submitted
   }
   handleCheck(isChecked, index) {
-    const newState =this.state.isContainerChecked.slice()
-    newState[index]=isChecked
-    this.setState({isContainerChecked: newState})
-    console.log(newState)
-    
+    const newState = this.state.isContainerChecked.slice();
+    newState[index] = isChecked;
+    this.setState({ isContainerChecked: newState });
+    console.log(newState);
   }
   render() {
     return (
